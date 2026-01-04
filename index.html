@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <head>
+  <title>Vishnu Kumari | Portfolio</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Vishnu Kumari | IT Student | Web Developer | Cyber Security Enthusiast | Portfolio">
+  <meta name="keywords" content="Vishnu Kumari, Portfolio, Web Developer, IT Student, Cyber Security, Projects">
+  <meta name="author" content="Vishnu Kumari">
+</head>
+
+
+<!-- PARTICLES JS CDN -->
+<script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+
+<style>
+:root{
+  --bg1:#020617;
+  --bg2:#0f172a;
+  --accent:#38bdf8;
+  --text:#e5e7eb;
+  --card:rgba(255,255,255,0.08);
+}
+
+/* LIGHT MODE */
+.light{
+  --bg1:#f8fafc;
+  --bg2:#e2e8f0;
+  --text:#020617;
+  --card:rgba(0,0,0,0.08);
+}
+
+html{scroll-behavior:smooth;}
+
+/* PARTICLES */
+#particles-js{
+  position:fixed;
+  inset:0;
+  z-index:-2;
+}
+
+/* MOUSE GLOW */
+#mouse-glow{
+  position:fixed;
+  width:140px;
+  height:140px;
+  border-radius:50%;
+  pointer-events:none;
+  background:radial-gradient(circle,rgba(56,189,248,.45),transparent 60%);
+  filter:blur(35px);
+  transform:translate(-50%,-50%);
+  z-index:-1;
+}
+
+body{
+  margin:0;
+  font-family:"Poppins", Arial, sans-serif;
+  color:var(--text);
+  background:linear-gradient(-45deg,var(--bg1),var(--bg2),#1e293b,var(--bg1));
+  background-size:400% 400%;
+  animation:bgMove 12s ease infinite;
+}
+
+@keyframes bgMove{
+  0%{background-position:0% 50%;}
+  50%{background-position:100% 50%;}
+  100%{background-position:0% 50%;}
+}
+
+/* NAV */
+nav{
+  position:fixed;
+  top:0;
+  width:100%;
+  padding:15px;
+  backdrop-filter:blur(10px);
+  background:rgba(2,6,23,.7);
+  text-align:center;
+  z-index:100;
+}
+
+nav a{
+  margin:0 18px;
+  color:var(--text);
+  text-decoration:none;
+  font-weight:500;
+  position:relative;
+}
+
+nav a::after{
+  content:"";
+  position:absolute;
+  left:0;
+  bottom:-6px;
+  width:0;
+  height:2px;
+  background:var(--accent);
+  transition:.4s;
+}
+nav a:hover::after{width:100%;}
+
+/* DARK MODE BUTTON */
+.toggle{
+  position:fixed;
+  top:18px;
+  right:20px;
+  padding:6px 14px;
+  background:var(--accent);
+  color:#020617;
+  border-radius:20px;
+  cursor:pointer;
+  z-index:200;
+  font-size:14px;
+}
+
+/* HERO */
+.hero{
+  height:80vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  padding-top:60px;
+}
+
+.hero h1{
+  font-size:3.5rem;
+  animation:zoomIn 1.2s ease forwards, floatText 4s ease-in-out infinite;
+  text-shadow:0 0 25px rgba(56,189,248,.4);
+}
+
+@keyframes zoomIn{
+  from{opacity:0; transform:scale(0.6);}
+  to{opacity:1; transform:scale(1);}
+}
+@keyframes floatText{
+  0%,100%{transform:translateY(0);}
+  50%{transform:translateY(-12px);}
+}
+
+.hero span{color:var(--accent);}
+
+/* RESUME BUTTON */
+.resume-btn{
+  display:inline-block;
+  margin-top:25px;
+  padding:14px 35px;
+  border-radius:40px;
+  background:var(--accent);
+  color:#020617;
+  text-decoration:none;
+  font-weight:600;
+  transition:.4s;
+  box-shadow:0 0 20px rgba(56,189,248,.6);
+}
+.resume-btn:hover{
+  transform:scale(1.1);
+  box-shadow:0 0 40px rgba(56,189,248,.9);
+}
+
+/* SECTIONS */
+section{
+  max-width:1000px;
+  margin:auto;
+  padding:70px 20px;
+}
+
+.card{
+  background:var(--card);
+  padding:40px;
+  border-radius:18px;
+  backdrop-filter:blur(14px);
+  box-shadow:0 30px 80px rgba(0,0,0,.6);
+  opacity:0;
+  transform:translateY(60px);
+  transition:1s cubic-bezier(.23,1,.32,1);
+}
+.card.show{
+  opacity:1;
+  transform:translateY(0);
+}
+
+h2{
+  color:var(--accent);
+  letter-spacing:2px;
+}
+
+/* SKILLS */
+.skills span{
+  display:inline-block;
+  margin:10px;
+  padding:12px 22px;
+  border-radius:30px;
+  background:rgba(56,189,248,.15);
+  transition:.4s;
+}
+.skills span:hover{
+  transform:scale(1.15);
+  box-shadow:0 0 20px rgba(56,189,248,.7);
+}
+
+/* TIMELINE */
+.timeline{
+  position:relative;
+  margin-top:30px;
+}
+.timeline::before{
+  content:"";
+  position:absolute;
+  left:20px;
+  top:0;
+  width:3px;
+  height:100%;
+  background:var(--accent);
+}
+
+.cert{
+  margin-left:60px;
+  margin-bottom:35px;
+  padding:22px;
+  background:rgba(255,255,255,.06);
+  border-radius:14px;
+  transition:.4s;
+}
+.cert:hover{
+  transform:translateX(12px);
+  background:rgba(56,189,248,.25);
+}
+
+/* PROJECTS */
+.project{
+  padding:20px;
+  margin-bottom:20px;
+  border-left:4px solid var(--accent);
+  background:rgba(255,255,255,.05);
+  transition:.4s;
+}
+.project:hover{
+  transform:translateY(-10px) scale(1.05);
+  box-shadow:0 25px 55px rgba(56,189,248,.4);
+}
+
+@media(max-width:700px){
+  .hero h1{font-size:2.2rem;}
+}
+</style>
+</head>
+
+<body>
+
+<div id="particles-js"></div>
+<div id="mouse-glow"></div>
+<div class="toggle" onclick="toggleMode()">🌙 / ☀️</div>
+
+<nav>
+  <a href="#about">About</a>
+  <a href="#skills">Skills</a>
+  <a href="#education">Education</a>
+  <a href="#certifications">Certifications</a>
+  <a href="#projects">Projects</a>
+  <a href="#contact">Contact</a>
+</nav>
+
+<div class="hero">
+  <div>
+    <h1>Hi, I’m <span>Vishnu Kumari</span></h1>
+    <p id="typing"></p>
+    
+  </div>
+</div>
+
+<section id="about">
+  <div class="card">
+    <h2>ABOUT ME</h2>
+    <p>
+      I am an Information Technology student with a strong interest in Web Development
+      and Cyber Security. I enjoy learning new technologies and building projects that
+      solve real-world problems.
+    </p>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="card">
+    <h2>SKILLS</h2>
+    <div class="skills">
+      <span>HTML</span>
+      <span>CSS</span>
+      <span>JavaScript (Basics)</span>
+      <span>Java</span>
+      <span>Python (Basics)</span>
+      <span>C</span>
+      <span>SQL (Basics)</span>
+    </div>
+  </div>
+</section>
+
+<section id="education">
+  <div class="card">
+    <h2>EDUCATION</h2>
+    <div class="timeline">
+      <div class="cert">
+        <h3>B.Tech – Information Technology</h3>
+        <p>Sagi Rama Krishnam Raju Engineering College (2024–2028)</p>
+        <p>CGPA: 9.1</p>
+      </div>
+      <div class="cert">
+        <h3>Intermediate</h3>
+        <p>Sri Gowthami College – 98%</p>
+      </div>
+      <div class="cert">
+        <h3>SSC</h3>
+        <p>Z.P. High School – 86%</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="certifications">
+  <div class="card">
+    <h2>CERTIFICATIONS & ACHIEVEMENTS</h2>
+    <div class="timeline">
+      <div class="cert">Cisco C Programming Essentials 1 & 2</div>
+      <div class="cert">Cisco Python Programming Essentials 1 & 2</div>
+      <div class="cert">Palo Alto Cybersecurity Virtual Internship – EduSkills</div>
+      <div class="cert">Anusandhan Poster Presentation – First Prize</div>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="card">
+    <h2>PROJECTS</h2>
+    <div class="project">
+      <b>Prakriti Quest – Smart Farming Web Application</b>
+      <p>
+        A smart farming platform that helps farmers with crop recommendations,
+        irrigation methods, pest management, and agricultural awareness.
+      </p>
+    </div>
+    <div class="project">
+      <b>Heritage India Project</b> – Smart India Hackathon (Attempted)
+      <p>Proposed a technology-based solution to promote Indian cultural heritage.</p>
+    </div>
+    <div class="project">
+      <b>Fitness Challenge Platform</b> – College Hackathon (Attempted)
+      <p>Designed a conceptual fitness tracking and challenge-based web platform.</p>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="card">
+    <h2>CONTACT</h2>
+    <p>Email: vishnukumarikollati502@gmail.com</p>
+    <p>LinkedIn: linkedin.com/in/vishnu-kumari-kollati</p>
+    <p>Phone: +91 9059743149</p>
+  </div>
+</section>
+
+<script>
+/* PARTICLES */
+particlesJS("particles-js",{
+  particles:{
+    number:{value:80},
+    color:{value:"#38bdf8"},
+    size:{value:3},
+    move:{enable:true,speed:1}
+  },
+  interactivity:{
+    events:{onhover:{enable:true,mode:"repulse"}}
+  }
+});
+
+/* SCROLL REVEAL */
+const cards=document.querySelectorAll(".card");
+window.addEventListener("scroll",()=>{
+  cards.forEach(card=>{
+    if(card.getBoundingClientRect().top < window.innerHeight-100){
+      card.classList.add("show");
+    }
+  });
+});
+
+/* TYPING */
+const text="IT Student • Web Development ";
+let i=0;
+(function typing(){
+  if(i<text.length){
+    document.getElementById("typing").innerHTML+=text.charAt(i++);
+    setTimeout(typing,70);
+  }
+})();
+
+/* MOUSE GLOW */
+const glow=document.getElementById("mouse-glow");
+document.addEventListener("mousemove",e=>{
+  glow.style.left=e.clientX+"px";
+  glow.style.top=e.clientY+"px";
+});
+
+/* DARK MODE */
+function toggleMode(){
+  document.body.classList.toggle("light");
+}
+</script>
+
+</body>
+</html>
